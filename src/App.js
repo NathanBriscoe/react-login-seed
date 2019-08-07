@@ -1,45 +1,27 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-import React from 'react';
 import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navbar from "./components/layout/navbar";
+import Landing from "./components/layout/landing";
+import Register from "./components/auth/register";
+import Login from "./components/auth/login";
+
+// ToDo: will have to clean up formatting
+// ToDo: will have to rename classnames and add style
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-       <h1>Login page</h1>
-       <form>
-        <input placeholder="username" type="name" />
-        <input placeholder="password" type="password" />
-        <button onClick={this.onSubmit}>Submit</button>
-        <a>Create Account</a>
-      </form>
+
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
       </div>
+    </Router>
     );
   }
 }
