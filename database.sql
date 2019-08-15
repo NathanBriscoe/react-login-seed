@@ -7,7 +7,7 @@ CREATE TABLE "user" (
   OIDS=FALSE
 );
 
-
+// for this react-login-seed, do we need the "team", "picks"....etc?
 
 CREATE TABLE "team" (
 	"id" serial NOT NULL,
