@@ -2,6 +2,7 @@
 // ToDo: will need to rename classnames and add styling
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { axios } from "axios";
 
 class Register extends Component {
 

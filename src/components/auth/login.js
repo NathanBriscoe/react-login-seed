@@ -2,6 +2,7 @@
 // ToDo: will need to rename classnames and add styling
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { axios } from "axios";
 
 class Login extends Component {
   constructor() {
@@ -20,15 +21,15 @@ class Login extends Component {
         this.setState({ [event.target.id]: event.target.value });
     };
 
-    onSubmit = e => {
-        e.preventDefault();
+    onSubmit = event => {
+        event.preventDefault();
         const userData = {
             email: this.state.email,
             password: this.state.password
         };
         console.log(userData);
         // ToDo: add POST call here of login user
-        axios.post(`/`, { newUser }).then(res => {
+        axios.post(`/`, { userData }).then(res => {
             console.log(res);
             console.log(res.data);
         })
