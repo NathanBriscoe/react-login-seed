@@ -15,8 +15,9 @@ class Login extends Component {
     };
   }
 
-    onChange = e => {
-        this.setState({ [e.target.id]: e.target.value });
+    onChange = event => {
+        // will have to set state
+        this.setState({ [event.target.id]: event.target.value });
     };
 
     onSubmit = e => {
@@ -26,6 +27,11 @@ class Login extends Component {
             password: this.state.password
         };
         console.log(userData);
+        // ToDo: add POST call here of login user
+        axios.post(`/`, { newUser }).then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
     };
 
     render() {
@@ -43,33 +49,33 @@ class Login extends Component {
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
                                 <input
-                                onChange={this.onChange}
-                                value={this.state.email}
-                                error={errors.email}
-                                id="email"
-                                type="email"/>
+                                    onChange={this.onChange}
+                                    value={this.state.email}
+                                    error={errors.email}
+                                    id="email"
+                                    type="email"/>
                                 <label htmlFor="email">Email</label>
                             </div>
                             <div className="input-field col s12">
                                 <input
-                                onChange={this.onChange}
-                                value={this.state.password}
-                                error={errors.password}
-                                id="password"
-                                type="password"/>
+                                    onChange={this.onChange}
+                                    value={this.state.password}
+                                    error={errors.password}
+                                    id="password"
+                                    type="password"/>
                                 <label htmlFor="password">Password</label>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                 <button
-                                style={{
-                                    width: "150px",
-                                    borderRadius: "3px",
-                                    letterSpacing: "1.5px",
-                                    marginTop: "1rem"
-                                }}
-                                type="submit"
-                                className="btn btn-large waves-effect waves-light hoverable blue accent-3">
-                                Login
+                                    style={{
+                                        width: "150px",
+                                        borderRadius: "3px",
+                                        letterSpacing: "1.5px",
+                                        marginTop: "1rem"
+                                    }}
+                                    type="submit"
+                                    className="btn btn-large waves-effect waves-light hoverable blue accent-3">
+                                    Login
                                 </button>
                             </div>
                         </form>

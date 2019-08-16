@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Register extends Component {
+
   constructor() {
 
     super();
@@ -17,12 +18,15 @@ class Register extends Component {
     };
 }
 
-onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+onChange = event => {
+    // will have to set the State
+    this.setState({ [event.target.id]: event.target.value });
 };
 
-onSubmit = e => {
-    e.preventDefault();
+
+
+onSubmit = event => {
+    event.preventDefault();
     const newUser = {
       name: this.state.name,
       email: this.state.email,
@@ -30,6 +34,11 @@ onSubmit = e => {
       password2: this.state.password2
     };
     console.log(newUser);
+    // ToDo: add POST call here of registering user
+    axios.post(`/`, { newUser }).then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
 };
 
 render() {
@@ -48,51 +57,51 @@ render() {
                     <form noValidate onSubmit={this.onSubmit}>
                         <div className="input-field col s12">
                             <input
-                            onChange={this.onChange}
-                            value={this.state.name}
-                            error={errors.name}
-                            id="name"
-                            type="text"/>
+                                onChange={this.onChange}
+                                value={this.state.name}
+                                error={errors.name}
+                                id="name"
+                                type="text"/>
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="input-field col s12">
                             <input
-                            onChange={this.onChange}
-                            value={this.state.email}
-                            error={errors.email}
-                            id="email"
-                            type="email"/>
+                                onChange={this.onChange}
+                                value={this.state.email}
+                                error={errors.email}
+                                id="email"
+                                type="email"/>
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className="input-field col s12">
                             <input
-                            onChange={this.onChange}
-                            value={this.state.password}
-                            error={errors.password}
-                            id="password"
-                            type="password"/>
+                                onChange={this.onChange}
+                                value={this.state.password}
+                                error={errors.password}
+                                id="password"
+                                type="password"/>
                             <label htmlFor="password">Password</label>
                         </div>
                         <div className="input-field col s12">
                             <input
-                            onChange={this.onChange}
-                            value={this.state.password2}
-                            error={errors.password2}
-                            id="password2"
-                            type="password"/>
+                                onChange={this.onChange}
+                                value={this.state.password2}
+                                error={errors.password2}
+                                id="password2"
+                                type="password"/>
                             <label htmlFor="password2">Confirm Password</label>
                         </div>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <button
-                            style={{
-                                width: "150px",
-                                borderRadius: "3px",
-                                letterSpacing: "1.5px",
-                                marginTop: "1rem"
-                            }}
-                            type="submit"
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3">
-                            Sign up
+                                style={{
+                                    width: "150px",
+                                    borderRadius: "3px",
+                                    letterSpacing: "1.5px",
+                                    marginTop: "1rem"
+                                }}
+                                type="submit"
+                                className="btn btn-large waves-effect waves-light hoverable blue accent-3">
+                                Sign up
                             </button>
                         </div>
                     </form>
