@@ -4,7 +4,7 @@ import "./index.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import App from "./App";
 import Notfound from "./notfound";
-
+// index.js file, which we’ll use as the entry point for our server.
 const routing = (
   <Router>
     <div>
