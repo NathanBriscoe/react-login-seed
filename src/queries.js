@@ -3,7 +3,7 @@
 // In a production environment, you would want to put your configuration details in a separate file with restrictive
 // permissions that is not accessible from version control,
 
-const Pool = require('pg').Pool
+const Pool = import('pg').Pool;
 
 const pool = new Pool({
   user: 'postgres',
@@ -11,10 +11,10 @@ const pool = new Pool({
   database: 'react-login-db',
   password: 'password',
   port: 5432,
-})
+});
 
 const createUser = (request, response) => {
-  const { name, email, password } = request.body
+  const { name, email, password } = request.body;
 
   pool.query('INSERT INTO user (name, email, password) VALUES ($1, $2, $3)', [name, email, password], (error, results) => {
     if (error) {
@@ -22,7 +22,7 @@ const createUser = (request, response) => {
     }
     response.status(201).send(`User added with ID: ${results.insertId}`)
   })
-}
+};
 
 // const getUsers = (request, response) => {
 //   pool.query('SELECT * FROM user ORDER BY id ASC', (error, results) => {
@@ -78,4 +78,4 @@ module.exports = {
   // getUserById,
   // updateUser,
   // deleteUser,
-}
+};

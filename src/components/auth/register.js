@@ -7,9 +7,9 @@ import classnames from "classnames";
 
 class Register extends Component {
 
-  constructor() {
+    constructor(props) {
 
-    super();
+    super(props);
     // adding properties object and placing it in constructor to initalize right away
     this.state = {
       name: "",
@@ -78,7 +78,7 @@ render() {
             <div className="row">
                 <div className="col s8 offset-s2">
                     <Link to="/" className="btn-flat waves-effect">
-                        <i className="material-icons left"></i> Back button
+                        <i className="material-icons left">back</i> Back button
                     </Link>
                     <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                         <p className="grey-text text-darken-1"> Already have an account? <Link to="/login">Log in</Link></p>

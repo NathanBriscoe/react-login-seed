@@ -2,7 +2,7 @@ import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
 // Reducers are pure functions that specify how application state should change in response to an action. 
 // Reducers respond with the new state, which is passed to our store and, in turn, our UI.
 
-const isEmpty = require("is-empty");
+const isEmpty = import("is-empty");
 const initialState = {
   isAuthenticated: false,
   user: {},

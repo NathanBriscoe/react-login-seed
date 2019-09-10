@@ -4,9 +4,11 @@ import axios from "axios";
 const setAuthToken = token => {
   if (token) {
     // Apply authorization token to every request if logged in
+    // ToDo: "Unresolved variable common"
     axios.defaults.headers.common["Authorization"] = token;
   } else {
     // Delete auth header
+    // ToDo: "Unresolved variable common"
     delete axios.defaults.headers.common["Authorization"];
   }
 };

@@ -8,14 +8,18 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 
 class Login extends Component {
-  constructor() {
+    constructor(props) {
 
-    super();
+    super(props);
 
     this.state = {
       email: "",
       password: "",
-      errors: {}
+      errors: {
+          email: '',
+          emailNotFound: 'email not found',
+          passwordIncorrect: 'The password is incorrect'
+      }
     };
   }
 
@@ -62,7 +66,7 @@ class Login extends Component {
                 <div style={{ marginTop: "4rem" }} className="row">
                     <div className="col s8 offset-s2">
                         <Link to="/" className="btn-flat waves-effect">
-                            <i className="material-icons left"></i> Back to home
+                            <i className="material-icons left">back</i> Back to home
                         </Link>
                         <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                             <p className="grey-text text-darken-1">Don't have an account? <Link to="/register">Register</Link></p>
@@ -76,13 +80,13 @@ class Login extends Component {
                                     id="email"
                                     type="email"
                                     className={classnames("", {
-                                        invalid: errors.email || errors.emailnotfound
+                                        invalid: errors.email || errors.emailNotFound
                                     })}
                                 />
                                 <label htmlFor="email">Email</label>
                                 <span className="red-text">
                                     {errors.email}
-                                    {errors.emailnotfound}
+                                    {errors.emailNotFound}
                                 </span>
                             </div>
                             <div className="input-field col s12">
@@ -93,13 +97,13 @@ class Login extends Component {
                                     id="password"
                                     type="password"
                                     className={classnames("", {
-                                        invalid: errors.password || errors.passwordincorrect
+                                        invalid: errors.password || errors.passwordIncorrect
                                     })}
                                 />
                                 <label htmlFor="password">Password</label>
                                 <span className="red-text">
                                     {errors.password}
-                                    {errors.passwordincorrect}
+                                    {errors.passwordIncorrect}
                                 </span>
                             </div>
                             <div className="col s12" style={{ paddingLeft: "11.250px" }}>

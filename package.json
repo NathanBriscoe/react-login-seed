@@ -19,7 +19,9 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "body-parser": "latest",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
